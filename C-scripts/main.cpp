@@ -69,8 +69,10 @@ typedef struct param {
     
 }Params;
 
-char url[255] = "/rgblamp?color=255;brightness=100";
-// char url[] = "/rgblamp?red=255;green=0;blue=255";
+//char url[255] = "/rgblamp?color=255;brightness=100";
+//char url[255] = "/rgblamp?color=255;brightness=100";
+char url[] = "/rgblamp/";
+
 Params params[MAX_PARAMS];
 char uri[255];
 
@@ -116,7 +118,7 @@ void split_url(char  * url, char * uri, Params *params){
 }
 
 
-char * getParam(char * name){
+char * get_param(char * name){
     
        
     for(int i=0; i < MAX_PARAMS;i++){
@@ -144,8 +146,8 @@ int main(int argc, char** argv) {
     
     split_url(url,uri,params);
     
-    
-    printf("Param Value: %s", getParam("brightness"));
+    printf("URI: %s\n", uri);
+    printf("Param Value: %s", get_param("red"));
     
     return 0;
 }
